@@ -1,5 +1,5 @@
-
-import PropTypes from 'prop-types'
+import {useState} from "react";
+import PropTypes from 'prop-types';
 
 function Form(props) {
 
@@ -22,15 +22,18 @@ function Form(props) {
 
     }
 
+    const [nilai, setNilai] = useState('');
+
+
   return (
     <form onSubmit={handleSubmit} style={{textAlign: "center", marginTop: "35px", padding: "15px", border: "1px solid black", borderRadius: "1rem"}}>
         <fieldset style={{alignItems: "start",display: "flex", flexDirection: "column", border: "none"}}>
             <label htmlFor="username">Username: </label>
-            <input style={{width: "100%"}} id="username" name="username"/>
+            <input style={{width: "100%"}} id="username" name="username" onChange={(event) => {setNilai((event.target.value))}}/>
             <label htmlFor="text">Text: </label>
             <input style={{width: "100%"}} id="text" name="text"/>
         </fieldset>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={!nilai.trim()}>Submit</button>
     </form>
   )
 }
