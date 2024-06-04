@@ -22,13 +22,13 @@ function App() {
     setTodos((prev)=> {
       return [newList, ...prev]
     })
-  }
 
+    // call API to create todo
+  }
 
   const handleToggle = (event) => {
     const targetId = event.target.id;
     const targetChecked = event.target.checked;
-
 
   setTodos((previous) => {
     const updateTodo = previous.map((todo) => {
@@ -50,9 +50,9 @@ function App() {
     return updateTodo;
   })
     
-
+  // call API to update todo
     
-  }
+}
 
   return (
     <>
